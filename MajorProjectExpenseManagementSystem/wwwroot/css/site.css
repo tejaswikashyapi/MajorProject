@@ -24,15 +24,17 @@ a {
   border-color: #1861ac;
 }
 
- Sticky footer styles
--------------------------------------------------- 
+/*Sticky footer styles
+--------------------------------------------------*/
 html {
-  font-size: 14px;
+    font-size: 14px;
+    display: flex;
 }
 @media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+    html {
+        font-size: 16px;
+        display: flex;
+    }
 }
 
 .border-top {
@@ -51,23 +53,26 @@ button.accept-policy {
   line-height: inherit;
 }
 
- Sticky footer styles
--------------------------------------------------- 
+/*Sticky footer styles
+--------------------------------------------------*/
 html {
-  position: relative;
-  min-height: 100%;
+    position: relative;
+    min-height: 100%;
+    display: flex;
 }
 
 body {
-   Margin bottom by footer height 
-  margin-bottom: 60px;
+    /*Margin bottom by footer height */
+        margin-bottom: 60px;
+    flex: 1;
 }
 .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;  Vertically center the text there 
+    position: fixed;
+    display: flex;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /*Vertically center the text there */
 }
 
 
@@ -77,7 +82,7 @@ body {
 
 
 
-.theme-light {
+/*.theme-light {
     --body-color: #566787;
     --body-background: #f5f5f5;
     --table-wrapper-background: #fff;
@@ -224,11 +229,11 @@ table.table .avatar {
     border-radius: 50%;
     vertical-align: middle;
     margin-right: 10px;
-}
+}*/
 
 
 /* Modal styles */
-.modal .modal-dialog {
+/*.modal .modal-dialog {
     max-width: 400px;
 }
 
@@ -334,4 +339,4 @@ input:checked + .slider {
 
     .slider.round:before {
         border-radius: 50%;
-    }
+    }*/
