@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Data\Migrations\20220927191310_AddedCustomUserRegistration.cs" />
+    <Compile Remove="Data\Migrations\20220927191310_AddedCustomUserRegistration.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.28" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.28" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.28" />
@@ -15,6 +20,11 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.28" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\ExpenseMgmt\Controllers\" />
+    <Folder Include="Areas\ExpenseMgmt\Views\" />
   </ItemGroup>
 
 </Project>

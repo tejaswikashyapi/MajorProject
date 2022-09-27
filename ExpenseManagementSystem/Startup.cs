@@ -1,9 +1,12 @@
 using ExpenseManagementSystem.Data;
+using ExpenseManagementSystem.Models;
+using ExpenseManagementSystem.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -38,14 +41,17 @@ namespace ExpenseManagementSystem
                 });
 
             // Register the OWIN Identity Middleware
-            services
-                .AddIdentity<IdentityUser, IdentityRole>(options =>
-                {
-                    options.SignIn.RequireConfirmedAccount = true;
-                    options.Password.RequiredLength = 8;
-                })
-                .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultTokenProviders();
+            //services
+            //    .AddIdentity<ApplicationUser, IdentityRole>(options =>
+            //    {
+            //        options.SignIn.RequireConfirmedAccount = true;
+            //        options.Password.RequiredLength = 8;
+            //    })
+            //    .AddEntityFrameworkStores<ApplicationDbContext>()
+            //    //.AddDefaultUI()
+            //    .AddDefaultTokenProviders();
+            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+        .AddEntityFrameworkStores<ApplicationDbContext>();
 
             // Register the ASP.NET Razor Pages Middleware
             services
@@ -68,6 +74,8 @@ namespace ExpenseManagementSystem
                     options.Cookie.HttpOnly = true;
                     options.Cookie.Name = "MyAuthCookie";
                 });
+            //Added Service for Email Confirmation
+            services.AddSingleton<IEmailSender, MyEmailSenderService>();
 
         }
 
