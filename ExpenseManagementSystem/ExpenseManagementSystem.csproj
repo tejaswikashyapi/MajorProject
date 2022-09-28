@@ -7,8 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Data\Migrations\20220927191310_AddedCustomUserRegistration.cs" />
-    <Compile Remove="Data\Migrations\20220927191310_AddedCustomUserRegistration.Designer.cs" />
+    <Compile Remove="Migrations\20220928050548_Renamed Identity Table Names.cs" />
+    <Compile Remove="Migrations\20220928050548_Renamed Identity Table Names.Designer.cs" />
+    <Compile Remove="Migrations\20220928054551_Renamed Identity Table Names.cs" />
+    <Compile Remove="Migrations\20220928054551_Renamed Identity Table Names.Designer.cs" />
+    <Compile Remove="Migrations\20220928060810_RenamedIdentityTableNames.cs" />
+    <Compile Remove="Migrations\20220928060810_RenamedIdentityTableNames.Designer.cs" />
+    <Compile Remove="Migrations\20220928063241_AddedCustomUserProperties.cs" />
+    <Compile Remove="Migrations\20220928063241_AddedCustomUserProperties.Designer.cs" />
+    <Compile Remove="Migrations\20220928063718_AddedCustomUserProperties.cs" />
+    <Compile Remove="Migrations\20220928063718_AddedCustomUserProperties.Designer.cs" />
+    <Compile Remove="Migrations\20220928071121_CustomizedIdentityManager.cs" />
+    <Compile Remove="Migrations\20220928071121_CustomizedIdentityManager.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

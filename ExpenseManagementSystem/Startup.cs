@@ -40,18 +40,18 @@ namespace ExpenseManagementSystem
                     options.UseSqlServer(connString);
                 });
 
-            // Register the OWIN Identity Middleware
-            //services
-            //    .AddIdentity<ApplicationUser, IdentityRole>(options =>
-            //    {
-            //        options.SignIn.RequireConfirmedAccount = true;
-            //        options.Password.RequiredLength = 8;
-            //    })
-            //    .AddEntityFrameworkStores<ApplicationDbContext>()
-            //    //.AddDefaultUI()
-            //    .AddDefaultTokenProviders();
-            services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-        .AddEntityFrameworkStores<ApplicationDbContext>();
+            //Register the OWIN Identity Middleware
+            services
+                .AddIdentity<ApplicationUser, IdentityRole>(options =>
+                {
+                    options.SignIn.RequireConfirmedAccount = true;
+                    options.Password.RequiredLength = 8;
+                })
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultUI()
+                .AddDefaultTokenProviders();
+            //    services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+            //.AddEntityFrameworkStores<ApplicationDbContext>();
 
             // Register the ASP.NET Razor Pages Middleware
             services
@@ -76,6 +76,10 @@ namespace ExpenseManagementSystem
                 });
             //Added Service for Email Confirmation
             services.AddSingleton<IEmailSender, MyEmailSenderService>();
+            //services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddDefaultIdentity<ApplicationUser>().AddRoles<IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
+            //services.AddControllersWithViews();
+            //services.AddRazorPages();
 
         }
 
