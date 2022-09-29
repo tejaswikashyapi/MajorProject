@@ -1,13 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
 using System;
-using Microsoft.AspNetCore.Identity;
 
 namespace ExpenseManagementSystem.Models
 {
-    public class ApplicationUser : IdentityUser
+    public class ApplicationUser : IdentityUser<int>
     {
         [Required(ErrorMessage = "Please Enter Your Annual Income")]
         [Display(Name = "Annual Income")]
@@ -19,5 +19,6 @@ namespace ExpenseManagementSystem.Models
         [Display(Name = "Registration Date")]
         [DataType(DataType.DateTime)]
         public DateTime UserCreatedOn { get; set; } = DateTime.Now;
+
     }
 }

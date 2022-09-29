@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata.Internal;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
@@ -19,7 +20,7 @@ namespace ExpenseManagementSystem.Models
         //User Id (Foreign Key)
         public int Id { get; set; }
         [ForeignKey(nameof(Budget.Id))]
-        public ApplicationUser ApplicationUser { get; set; }
+        public IdentityUser IdentityUser { get; set; }
 
         //Budget Amount(decimal)
         [Required(ErrorMessage = "Please Enter Budget Amount")]

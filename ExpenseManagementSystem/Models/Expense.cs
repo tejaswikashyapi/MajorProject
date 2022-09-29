@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -12,10 +13,11 @@ namespace ExpenseManagementSystem.Models
 
 #nullable enable
         public int? Id { get; set; }
-#nullable disable
+
 
         [ForeignKey(nameof(Expense.Id))]
-        public ApplicationUser ApplicationUser { get; set; }
+        public ApplicationUser? ApplicationUser { get; set; }
+#nullable disable
 
         [Display(Name = "Description")]
         [Required(ErrorMessage = "Please Enter Expense Description")]

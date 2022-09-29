@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ExpenseManagementSystem.Models
 {
+    [Table(name:"ExpenseCategories")]
     public class ExpenseCategory
     {
         [Display(Name="Category ID")]

@@ -42,13 +42,12 @@ namespace ExpenseManagementSystem
 
             //Register the OWIN Identity Middleware
             services
-                .AddIdentity<IdentityUser, IdentityRole>(options =>
+                .AddIdentity<ApplicationUser, IdentityRole<int>>(options =>
                 {
-                    options.SignIn.RequireConfirmedAccount = true;
-                    options.Password.RequiredLength = 8;
-                })
+                options.SignIn.RequireConfirmedAccount = true;
+                options.Password.RequiredLength = 8;
+            })
                 .AddEntityFrameworkStores<ApplicationDbContext>()
-                .AddDefaultUI()
                 .AddDefaultTokenProviders();
             //    services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
             //.AddEntityFrameworkStores<ApplicationDbContext>();
@@ -77,7 +76,7 @@ namespace ExpenseManagementSystem
             //Added Service for Email Confirmation
             services.AddSingleton<IEmailSender, MyEmailSenderService>();
             //services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            //services.AddDefaultIdentity<ApplicationUser>().AddRoles<IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
+            //services.AddDefaultIdentity<IdentityUser>().AddRoles<IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
             //services.AddControllersWithViews();
             //services.AddRazorPages();
 

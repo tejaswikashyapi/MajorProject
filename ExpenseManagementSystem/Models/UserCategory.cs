@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using Microsoft.AspNetCore.Identity;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ExpenseManagementSystem.Models
 {
@@ -10,7 +11,7 @@ namespace ExpenseManagementSystem.Models
 
 
         [ForeignKey(nameof(UserCategory.Id))]
-        public ApplicationUser ApplicationUser { get; set; }
+        public IdentityUser IdentityUser { get; set; }
 
 
         public string? ExpenseCategoryId { get; set; }
