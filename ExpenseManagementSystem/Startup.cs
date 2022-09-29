@@ -42,7 +42,7 @@ namespace ExpenseManagementSystem
 
             //Register the OWIN Identity Middleware
             services
-                .AddIdentity<ApplicationUser, IdentityRole>(options =>
+                .AddIdentity<IdentityUser, IdentityRole>(options =>
                 {
                     options.SignIn.RequireConfirmedAccount = true;
                     options.Password.RequiredLength = 8;

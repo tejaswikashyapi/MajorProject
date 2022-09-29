@@ -18,12 +18,16 @@
     <Compile Remove="Migrations\20220928063241_AddedCustomUserProperties.Designer.cs" />
     <Compile Remove="Migrations\20220928063718_AddedCustomUserProperties.cs" />
     <Compile Remove="Migrations\20220928063718_AddedCustomUserProperties.Designer.cs" />
+    <Compile Remove="Migrations\20220928064249_AddedCustomUserProperties.cs" />
+    <Compile Remove="Migrations\20220928064249_AddedCustomUserProperties.Designer.cs" />
     <Compile Remove="Migrations\20220928071121_CustomizedIdentityManager.cs" />
     <Compile Remove="Migrations\20220928071121_CustomizedIdentityManager.Designer.cs" />
     <Compile Remove="Migrations\20220929075235_DefinedAllModels.cs" />
     <Compile Remove="Migrations\20220929075235_DefinedAllModels.Designer.cs" />
     <Compile Remove="Migrations\20220929075527_AddedExpenseCategoryModel.cs" />
     <Compile Remove="Migrations\20220929075527_AddedExpenseCategoryModel.Designer.cs" />
+    <Compile Remove="Migrations\20220929075651_AddedExpenseCategoryModel.cs" />
+    <Compile Remove="Migrations\20220929075651_AddedExpenseCategoryModel.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,6 +39,10 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.28" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
   </ItemGroup>
 
 </Project>
