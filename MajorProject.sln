@@ -5,7 +5,12 @@ VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MajorProjectExpenseManagementSystem", "MajorProjectExpenseManagementSystem\MajorProjectExpenseManagementSystem.csproj", "{01D2FB21-E417-4D8D-A6F4-F0BB512A32DE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseManagementSystem", "ExpenseManagementSystem\ExpenseManagementSystem.csproj", "{3724CC8F-ED3E-4B61-BBA8-EA10CC75887B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExpenseManagementSystem", "ExpenseManagementSystem\ExpenseManagementSystem.csproj", "{3724CC8F-ED3E-4B61-BBA8-EA10CC75887B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B7CE9614-CF19-4EB2-8235-CB33121C67CC}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -10,8 +10,9 @@ namespace ExpenseManagementSystem.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ExpenseId { get; set; }
 
-        [Required]
-        public string Id { get; set; }
+#nullable enable
+        public int? Id { get; set; }
+#nullable disable
 
         [ForeignKey(nameof(Expense.Id))]
         public ApplicationUser ApplicationUser { get; set; }
@@ -33,10 +34,10 @@ namespace ExpenseManagementSystem.Models
 
         public Payer PayerName { get; set; }
 
-        public ExpenseCategory Category { get; set; }
+        public ExpenseCategory ExpenseCategoryName { get; set; }
 
         [Display(Name = "Submit DateTime")]
         [DataType(DataType.DateTime)]
-        public DateTime SubmitDate { get; set; }
+        public DateTime SubmitDate { get; set; } = DateTime.Now;
     }
 }

@@ -4,6 +4,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UserSecretsId>aspnet-ExpenseManagementSystem-7180BC39-43E1-418D-B539-A92002912BAE</UserSecretsId>
     <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+	  <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>
@@ -19,6 +20,10 @@
     <Compile Remove="Migrations\20220928063718_AddedCustomUserProperties.Designer.cs" />
     <Compile Remove="Migrations\20220928071121_CustomizedIdentityManager.cs" />
     <Compile Remove="Migrations\20220928071121_CustomizedIdentityManager.Designer.cs" />
+    <Compile Remove="Migrations\20220929075235_DefinedAllModels.cs" />
+    <Compile Remove="Migrations\20220929075235_DefinedAllModels.Designer.cs" />
+    <Compile Remove="Migrations\20220929075527_AddedExpenseCategoryModel.cs" />
+    <Compile Remove="Migrations\20220929075527_AddedExpenseCategoryModel.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,11 +35,6 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.28" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Areas\ExpenseMgmt\Controllers\" />
-    <Folder Include="Areas\ExpenseMgmt\Views\" />
   </ItemGroup>
 
 </Project>

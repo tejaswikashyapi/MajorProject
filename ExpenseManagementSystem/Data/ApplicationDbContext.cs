@@ -48,5 +48,6 @@ namespace ExpenseManagementSystem.Data
                 entity.ToTable("UserTokens");
             });
         }
+        public DbSet<ExpenseManagementSystem.Models.ExpenseCategory> ExpenseCategory { get; set; }
     }
 }
