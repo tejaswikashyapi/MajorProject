@@ -21,6 +21,8 @@ namespace ExpenseManagementSystem.Data
         }
         public DbSet<ExpenseManagementSystem.Models.ExpenseCategory> ExpenseCategory { get; set; }
         public DbSet<ExpenseManagementSystem.Models.Payer> Payer { get; set; }
+        public DbSet<ExpenseManagementSystem.Models.Expense> Expense { get; set; }
+        public DbSet<ExpenseManagementSystem.Models.Budget> Budget { get; set; }
 
     }
 }

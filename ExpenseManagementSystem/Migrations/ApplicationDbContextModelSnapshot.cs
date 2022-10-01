@@ -92,6 +92,73 @@ namespace ExpenseManagementSystem.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("ExpenseManagementSystem.Models.Budget", b =>
+                {
+                    b.Property<int>("BudgetId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<decimal>("BudgetAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<DateTime>("BudgetCreatedOn")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("BudgetName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Id")
+                        .HasColumnType("int");
+
+                    b.HasKey("BudgetId");
+
+                    b.HasIndex("Id");
+
+                    b.ToTable("Budgets");
+                });
+
+            modelBuilder.Entity("ExpenseManagementSystem.Models.Expense", b =>
+                {
+                    b.Property<int>("ExpenseId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<decimal>("ExpenseAmount")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<int?>("ExpenseCategoryNameExpenseCategoryId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ExpenseDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("ExpenseDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("Id")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PayerNameId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("SubmitDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("ExpenseId");
+
+                    b.HasIndex("ExpenseCategoryNameExpenseCategoryId");
+
+                    b.HasIndex("Id");
+
+                    b.HasIndex("PayerNameId");
+
+                    b.ToTable("Expenses");
+                });
+
             modelBuilder.Entity("ExpenseManagementSystem.Models.ExpenseCategory", b =>
                 {
                     b.Property<int>("ExpenseCategoryId")
@@ -250,6 +317,28 @@ namespace ExpenseManagementSystem.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("ExpenseManagementSystem.Models.Budget", b =>
+                {
+                    b.HasOne("ExpenseManagementSystem.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("Id");
+                });
+
+            modelBuilder.Entity("ExpenseManagementSystem.Models.Expense", b =>
+                {
+                    b.HasOne("ExpenseManagementSystem.Models.ExpenseCategory", "ExpenseCategoryName")
+                        .WithMany()
+                        .HasForeignKey("ExpenseCategoryNameExpenseCategoryId");
+
+                    b.HasOne("ExpenseManagementSystem.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("Id");
+
+                    b.HasOne("ExpenseManagementSystem.Models.Payer", "PayerName")
+                        .WithMany()
+                        .HasForeignKey("PayerNameId");
                 });
 
             modelBuilder.Entity("ExpenseManagementSystem.Models.Payer", b =>

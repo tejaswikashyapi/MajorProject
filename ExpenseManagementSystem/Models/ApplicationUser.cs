@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Xml.Linq;
 using System;
+using System.Collections.Generic;
 
 namespace ExpenseManagementSystem.Models
 {
@@ -19,6 +20,7 @@ namespace ExpenseManagementSystem.Models
         [Display(Name = "Registration Date")]
         [DataType(DataType.DateTime)]
         public DateTime UserCreatedOn { get; set; } = DateTime.Now;
+        public ICollection<Payer> Payers { get; set; }
 
     }
 }

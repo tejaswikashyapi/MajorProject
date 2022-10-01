@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ExpenseManagementSystem.Models
 {
+    [Table(name:"Expenses")]
     public class Expense
     {
         [Key]

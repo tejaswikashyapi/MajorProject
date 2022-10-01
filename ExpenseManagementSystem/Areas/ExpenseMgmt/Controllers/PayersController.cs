@@ -47,10 +47,20 @@ namespace ExpenseManagementSystem.Areas.ExpenseMgmt.Controllers
         }
 
         // GET: ExpenseMgmt/Payers/Create
-        public IActionResult Create()
+        public async Task<IActionResult> Create(int? id)
         {
-            ViewData["Id"] = new SelectList(_context.Users, "Id", "Id");
-            return View();
+            //ViewData["Id"] = new SelectList(_context.Users, "Id", "Id");
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var payer = await _context.Payer.FindAsync(id);
+            if (payer == null)
+            {
+                return NotFound();
+            }
+            return View(payer);
         }
 
         // POST: ExpenseMgmt/Payers/Create
@@ -92,7 +102,7 @@ namespace ExpenseManagementSystem.Areas.ExpenseMgmt.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int? id, [Bind("Id,PayerName")] Payer payer)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,PayerName")] Payer payer)
         {
             if (id != payer.Id)
             {
@@ -145,7 +155,7 @@ namespace ExpenseManagementSystem.Areas.ExpenseMgmt.Controllers
         // POST: ExpenseMgmt/Payers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int? id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var payer = await _context.Payer.FindAsync(id);
             _context.Payer.Remove(payer);
@@ -153,7 +163,7 @@ namespace ExpenseManagementSystem.Areas.ExpenseMgmt.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool PayerExists(int? id)
+        private bool PayerExists(int id)
         {
             return _context.Payer.Any(e => e.Id == id);
         }

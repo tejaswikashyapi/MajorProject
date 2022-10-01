@@ -7,10 +7,10 @@ namespace ExpenseManagementSystem.Models
     [Table(name:"Payers")]
     public class Payer
     {
-        public int? Id { get; set; }
+        public int Id { get; set; }
         [Display(Name ="User Id")]
         [ForeignKey(nameof(Payer.Id))]
-        public ApplicationUser? ApplicationUser { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
 
         [Display(Name ="Payer Name")]
         [Required(ErrorMessage ="Please Enter Payer Name")]

@@ -8,9 +8,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ExpenseManagementSystem.Models
 {
+    [Table(name: "Budgets")]
     public class Budget
     {
+
         //Budget Id
+        [Required(ErrorMessage ="Please Enter Budget ID")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Key]
         public int BudgetId { get; set; }
@@ -18,9 +21,9 @@ namespace ExpenseManagementSystem.Models
         public string BudgetName { get; set; }
 
         //User Id (Foreign Key)
-        public int Id { get; set; }
+        public int? Id { get; set; }
         [ForeignKey(nameof(Budget.Id))]
-        public IdentityUser IdentityUser { get; set; }
+        public ApplicationUser? ApplicationUser { get; set; }
 
         //Budget Amount(decimal)
         [Required(ErrorMessage = "Please Enter Budget Amount")]
