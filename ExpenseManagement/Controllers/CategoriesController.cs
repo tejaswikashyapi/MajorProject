@@ -28,6 +28,7 @@ namespace ExpenseManagement.Controllers
             return await _context.Categories.ToListAsync();
         }
 
+
         // GET: api/Categories/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Category>> GetCategory(int id)
