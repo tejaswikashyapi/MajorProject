@@ -7,18 +7,24 @@ using System;
 using ExpenseManagement.Data;
 using Microsoft.EntityFrameworkCore;
 using ExpenseManagement.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Logging;
 
 namespace ExpenseManagement.Areas.ExpMgmt.Controllers
 {
     [Area("ExpMgmt")]
+    [Authorize]
     public class DashboardController : Controller
     {
 
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<CategoriesController> _logger;
 
-        public DashboardController(ApplicationDbContext context)
+        public DashboardController(ApplicationDbContext context, ILogger<CategoriesController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         public async Task<ActionResult> Index()

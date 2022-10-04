@@ -4,7 +4,49 @@
     ViewData["Title"] = "Home page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+
+<section id="hero" class="d-flex align-items-center">
+    <div class="container e-bigger">
+        <center><h1>Welcome to <span>Expense Management</span></h1></center>
+        <center><h2>A Web App to Manage your expenses</h2></center>
+       
+    </div>
+</section>
+<!-- ======= About Section ======= -->
+<section id="about" class="about section-bg">
+    <div class="container e-bigger" @*data-aos="fade-up"*@>
+
+        <div class="section-title">
+            <h2>About</h2>
+            <h3>Find Out More <span>About Us</span></h3>
+            <p>Expense Manager is a Version 1 of implementation wherein the User can create expense or Income Categories and keep track of ones expenses</p>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-6" @*data-aos="fade-right" data-aos-delay="100"*@>
+                <img src="https://cdn4.vectorstock.com/i/1000x1000/08/43/expense-tracker-app-rgb-color-icon-vector-39050843.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-6 pt-4 pt-lg-0 content d-flex flex-column justify-content-center" @*data-aos="fade-up" data-aos-delay="100"*@>
+                <h3>The CEO: Tejaswi Kashyapi</h3>
+                <p class="fst-italic">
+                    Tejaswi Kashyapi is a Trainee Developer at Birlasoft Ltd. He is proficient in Data Science and Machine Learning and recently he has strarted his Web Application development journey with ASP.NET CORE
+                <ul>
+                    <li>
+                        
+                        <div>
+                            <h5>CEO'S Message</h5>
+                            <p>Today Expense Management plays a huge role in gaining financial freedom. This gives us a great opportunity to use great visualization tools to help plan next Budgets</p>
+                            <br />
+                            <p>Expense Manager Helps you to track your budget and helps in great </p>
+                        </div>
+                    </li>
+                  
+                </ul>
+                <p>
+                    <h5>Expense Manager - The best Expense Management Web Application </h5>
+                </p>
+            </div>
+        </div>
+
+    </div>
+</section><!-- End About Section -->

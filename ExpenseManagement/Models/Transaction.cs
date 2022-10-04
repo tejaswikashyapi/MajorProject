@@ -2,18 +2,22 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System;
+using Microsoft.AspNetCore.Identity;
 
 namespace ExpenseManagement.Models
 {
     public class Transaction
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int TransactionId { get; set; }
+       
 
         [Range(1, int.MaxValue, ErrorMessage = "Please select a category.")]
         public int CategoryId { get; set; }
         public Category? Category { get; set; }
 
+        [Display(Name ="Amount")]
         [Range(1, int.MaxValue, ErrorMessage = "Amount should be greater than 0.")]
         public int TransactionAmount { get; set; }
 

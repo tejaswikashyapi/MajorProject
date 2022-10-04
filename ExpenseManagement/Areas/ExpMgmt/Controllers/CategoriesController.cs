@@ -7,17 +7,23 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ExpenseManagement.Data;
 using ExpenseManagement.Models;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Logging;
 
 namespace ExpenseManagement.Areas.ExpMgmt.Controllers
 {
     [Area("ExpMgmt")]
+    [Authorize]
     public class CategoriesController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public CategoriesController(ApplicationDbContext context)
+        private readonly ILogger<CategoriesController> _logger;
+        public CategoriesController(ApplicationDbContext context, ILogger<CategoriesController> logger)
         {
             _context = context;
+            _logger = logger;
+            
         }
 
         // GET: ExpMgmt/Categories

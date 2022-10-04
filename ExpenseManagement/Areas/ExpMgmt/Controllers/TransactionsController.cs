@@ -7,17 +7,22 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ExpenseManagement.Data;
 using ExpenseManagement.Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.Extensions.Logging;
 
 namespace ExpenseManagement.Areas.ExpMgmt.Controllers
 {
     [Area("ExpMgmt")]
+    [Authorize]
     public class TransactionsController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<CategoriesController> _logger;
 
-        public TransactionsController(ApplicationDbContext context)
+        public TransactionsController(ApplicationDbContext context,  ILogger<CategoriesController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         // GET: Transactions

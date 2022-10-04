@@ -6,7 +6,7 @@
 
 <div class="row">
     <div class="col-md-7">
-        <div class="widget p-5" style="background-color:#212b36">
+        <div class="widget p-5" style="background-color:lightgray">
             <form asp-controller="Transactions" asp-area="ExpMgmt" asp-action="AddOrEdit">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <input type="hidden" name="TransactionId" value="@Model.TransactionId" />
@@ -26,7 +26,7 @@
                 </div>
                 <div class="mb-3">
                     <ejs-numerictextbox id="amount" ejs-for="TransactionAmount"
-                                        placeholder="Transaction Amount" floatLabelType="Always"
+                                        placeholder="Amount" floatLabelType="Always"
                                         min=0 format="c0"></ejs-numerictextbox>
                     <span asp-validation-for="TransactionAmount" class="text-danger fs-6"></span>
                 </div>

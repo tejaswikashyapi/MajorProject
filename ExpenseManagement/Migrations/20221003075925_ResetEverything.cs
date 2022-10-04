@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ExpenseManagement.Migrations
 {
-    public partial class AddedIdentityModels : Migration
+    public partial class ResetEverything : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -152,6 +152,50 @@ namespace ExpenseManagement.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Categories",
+                columns: table => new
+                {
+                    CategoryId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ApplicationUserId = table.Column<string>(nullable: true),
+                    CategoryName = table.Column<string>(type: "nvarchar(50)", nullable: false),
+                    CategoryIcon = table.Column<string>(type: "nvarchar(5)", nullable: true),
+                    CategoryType = table.Column<string>(type: "nvarchar(10)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Categories", x => x.CategoryId);
+                    table.ForeignKey(
+                        name: "FK_Categories_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Transactions",
+                columns: table => new
+                {
+                    TransactionId = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CategoryId = table.Column<int>(nullable: false),
+                    TransactionAmount = table.Column<int>(nullable: false),
+                    TransactionComment = table.Column<string>(type: "nvarchar(75)", nullable: true),
+                    Date = table.Column<DateTime>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Transactions", x => x.TransactionId);
+                    table.ForeignKey(
+                        name: "FK_Transactions_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "CategoryId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -190,6 +234,16 @@ namespace ExpenseManagement.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Categories_ApplicationUserId",
+                table: "Categories",
+                column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Transactions_CategoryId",
+                table: "Transactions",
+                column: "CategoryId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -210,7 +264,13 @@ namespace ExpenseManagement.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Transactions");
+
+            migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "Categories");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

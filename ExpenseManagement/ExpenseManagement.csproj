@@ -17,8 +17,26 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20220929222343_Initial.cs" />
+    <Compile Remove="Migrations\20220929222343_Initial.Designer.cs" />
     <Compile Remove="Migrations\20221002105155_AddedCategoryandTransactionModels.cs" />
     <Compile Remove="Migrations\20221002105155_AddedCategoryandTransactionModels.Designer.cs" />
+    <Compile Remove="Migrations\20221003015840_AddedIdentityModels.cs" />
+    <Compile Remove="Migrations\20221003015840_AddedIdentityModels.Designer.cs" />
+    <Compile Remove="Migrations\20221003053315_AddedUserIdForiegnKey.cs" />
+    <Compile Remove="Migrations\20221003053315_AddedUserIdForiegnKey.Designer.cs" />
+    <Compile Remove="Migrations\20221003053929_AddedIdForiegnKeyApplicationUser.cs" />
+    <Compile Remove="Migrations\20221003053929_AddedIdForiegnKeyApplicationUser.Designer.cs" />
+    <Compile Remove="Migrations\20221003065207_AddedIdForiegnKeyApplicationUsers.cs" />
+    <Compile Remove="Migrations\20221003065207_AddedIdForiegnKeyApplicationUsers.Designer.cs" />
+    <Compile Remove="Migrations\20221003070618_ResetEverything.cs" />
+    <Compile Remove="Migrations\20221003070618_ResetEverything.Designer.cs" />
+    <Compile Remove="Migrations\20221003070908_RemovedApplicationUserIdForiegnKey.cs" />
+    <Compile Remove="Migrations\20221003070908_RemovedApplicationUserIdForiegnKey.Designer.cs" />
+    <Compile Remove="Migrations\20221003071157_ResetEverything.cs" />
+    <Compile Remove="Migrations\20221003071157_ResetEverything.Designer.cs" />
+    <Compile Remove="Migrations\20221003082721_AddedDatabaseIdentity.cs" />
+    <Compile Remove="Migrations\20221003082721_AddedDatabaseIdentity.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

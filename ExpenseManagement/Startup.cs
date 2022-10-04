@@ -1,4 +1,5 @@
 using ExpenseManagement.Data;
+using ExpenseManagement.Models;
 using ExpenseManagement.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -40,7 +41,7 @@ namespace ExpenseManagement
                });
             // Register the OWIN Identity Middleware
             services
-                .AddIdentity<IdentityUser, IdentityRole>(options =>
+                .AddIdentity<ApplicationUser,IdentityRole>(options =>
                 {
                     options.SignIn.RequireConfirmedAccount = true;
                     options.Password.RequiredLength = 8;
